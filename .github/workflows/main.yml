@@ -17,4 +17,4 @@ jobs:
       run: docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} -p ${{ secrets.GHCR_PASSWORD }}
 
     - name: Push Docker image to GitHub Packages
-      run: docker push ghcr.io/zaariel91/test_prover/prover:v1.0
+      run: docker push prover
