@@ -13,8 +13,41 @@ jobs:
     - name: 'Checkout GitHub Action'
       uses: actions/checkout@v3
 
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
     - name: Log in to GitHub Packages
       run: docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} -p ${{ secrets.GHCR_PASSWORD }}
 
+    # - name: Build Docker image
+    #   run: docker build -t ghcr.io/Z/${{ github.repository }}/myimage:latest .
+
     - name: Push Docker image to GitHub Packages
       run: docker push ghcr.io/zaariel91/test_prover:v1.0
+name: Push to GitHub Packages
+
+on:
+  push:
+    branches:
+      - main
+    
+jobs:
+  push-to-ghcr:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@v3
+
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Log in to GitHub Packages
+      run: docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} -p ${{ secrets.GHCR_PASSWORD }}
+
+    # - name: Build Docker image
+    #   run: docker build -t ghcr.io/Z/${{ github.repository }}/myimage:latest .
+
+    - name: Push Docker image to GitHub Packages
+      run: docker push ghcr.io/zaariel91/test_prover:v1.0
+
