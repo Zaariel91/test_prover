@@ -10,11 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-#    - name: Retag Docker image for GitHub Packages
- #     run: docker tag zaariel91/prover:v1.0 ghcr.io/zaariel91/test_prover/prover:v1.0
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@v3
 
     - name: Log in to GitHub Packages
       run: docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} -p ${{ secrets.GHCR_PASSWORD }}
 
     - name: Push Docker image to GitHub Packages
-      run: docker push prover
+      run: docker push ghcr.io/zaariel91/test_prover:v1.0
