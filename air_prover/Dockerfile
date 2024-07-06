@@ -26,10 +26,10 @@ FROM debian:stable-slim AS target
 # Copy the built binary from the base image to the target image
 COPY --from=base_image /app/prover/build/bazelbin/src/starkware/main/cpu/cpu_air_prover /usr/bin/
 # Uncomment the following line if you need to copy the verifier as well
-COPY --from=base_image /app/prover/build/bazelbin/src/starkware/main/cpu/cpu_air_verifier /usr/bin/
+# COPY --from=base_image /app/prover/bazel-bin/src/starkware/main/cpu/cpu_air_verifier /usr/bin/
 
 # Install the necessary runtime dependencies
 RUN apt update && apt install -y libdw1
 
 # Set the entry point for the container
-#ENTRYPOINT ["cpu_air_prover"]
+ENTRYPOINT ["cpu_air_prover"]
