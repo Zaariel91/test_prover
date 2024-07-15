@@ -76,7 +76,7 @@ Finally, run the verifier to verify the proof:
 Download the necessary package. Package stone-prover contains cpu_air_prover and cpu_air_verifier. For example:
 
 ```bash
-docker pull ghcr.io/dipdup-io/stone-packaging/stone-proverr:latest
+docker pull ghcr.io/dipdup-io/stone-packaging/stone-prover:latest
 ```
 
 ### Creating and verifying a test proof using docker images
